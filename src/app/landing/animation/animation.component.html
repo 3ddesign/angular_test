@@ -1,0 +1,17 @@
+<button class="btn btn-default" (click)="onAnimate()">button1</button>
+<button class="btn btn-default" (click)="onShrink()">button2</button>
+<hr>
+<div style=" width: 100px; height: 100px"
+     [@divState]="state"
+     (@divState.start)="onStartAnimation($event)"
+     (@divState.done)="onEndAnimation($event)"></div>
+<br>
+<div style="width: 100px; height: 100px"
+     [@wildState]="wildState"></div>
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item" [@list1]="list1" (click)="onDelete($event)">test</li>
+  <li class="list-group-item" [@list1]="list1" (click)="onDelete($event)">test</li>
+  <li class="list-group-item" [@list1]="list1" (click)="onDelete($event)">test</li>
+</ul>
