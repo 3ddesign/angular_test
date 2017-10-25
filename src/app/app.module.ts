@@ -11,6 +11,9 @@ import {AuthModule} from './landing/authentication/auth.module';
 import {CoreModule} from './core/core.module';
 import { AnimationComponent } from './landing/animation/animation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatabindingComponent } from './landing/databinding/databinding.component';
+import { PipesComponent } from './landing/pipes/pipes.component';
+import { DirectivesComponent } from './landing/directives/directives.component';
 
 @NgModule({
   // define components, directives and pipes to use
@@ -21,6 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpComponent,
     AuthenticationComponent,
     AnimationComponent,
+    DatabindingComponent,
+    PipesComponent,
+    DirectivesComponent,
   ],
   imports: [
     // define other modules, way to sawing time to import all components in modules

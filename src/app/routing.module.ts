@@ -9,11 +9,17 @@ import { SignupComponent } from './landing/authentication/signup/signup.componen
 import {AuthGuard} from './services/auth-guard.service';
 import {HomeComponent} from './core/home/home.component';
 import { AnimationComponent } from './landing/animation/animation.component';
+import {DatabindingComponent} from './landing/databinding/databinding.component';
+import {DirectivesComponent} from './landing/directives/directives.component';
+import {PipesComponent} from './landing/pipes/pipes.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'description', loadChildren: './landing/description/descriptions.module#DescriptionsModule' },
   { path: 'forms', component: FormsComponent },
+  { path: 'databinding', component: DatabindingComponent },
+  { path: 'directives', component: DirectivesComponent },
+  { path: 'pipes', component: PipesComponent },
   { path: 'animation', component: AnimationComponent },
   { path: 'http', component: HttpComponent, canActivate: [AuthGuard] },
   { path: 'observable', component: ObservableComponent },
