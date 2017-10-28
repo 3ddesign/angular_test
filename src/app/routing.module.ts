@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 import { FormsComponent } from './landing/forms/forms.component';
 import { HttpComponent } from './landing/http/http.component';
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes)
     // Use preloading:
-    // RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+    // RouterModule.forRoot(appRoutes,  {preloadingStrategy: PreloadAllModules})
   ],
   exports: [
     RouterModule
