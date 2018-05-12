@@ -11,14 +11,19 @@ import {HttpModule} from '@angular/http';
 import {AuthenticationComponent} from './landing/authentication/authentication.component';
 import {AuthModule} from './landing/authentication/auth.module';
 import {CoreModule} from './core/core.module';
-import { AnimationComponent } from './landing/animation/animation.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DatabindingComponent } from './landing/databinding/databinding.component';
-import { PipesComponent } from './landing/pipes/pipes.component';
-import { DirectivesComponent } from './landing/directives/directives.component';
-import { ShortenPipe } from './landing/pipes/shorten.pipe';
+import {AnimationComponent} from './landing/animation/animation.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DatabindingComponent} from './landing/databinding/databinding.component';
+import {PipesComponent} from './landing/pipes/pipes.component';
+import {DirectivesComponent} from './landing/directives/directives.component';
+import {ShortenPipe} from './landing/pipes/shorten.pipe';
 import {FilterPipe} from './landing/pipes/filter.pipe';
 import {FormsModule} from '@angular/forms';
+import {NgrxComponent} from './landing/ngrx/ngrx.component';
+import {CarsFormComponent} from './landing/ngrx/cars-form/cars-form.component';
+import {CarComponent} from './landing/ngrx/car/car.component';
+import {StoreModule} from '@ngrx/store';
+import {carsReducer} from './landing/ngrx/redux/cars.reducer';
 
 @NgModule({
   // define components, directives and pipes to use
@@ -33,7 +38,10 @@ import {FormsModule} from '@angular/forms';
     PipesComponent,
     DirectivesComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    NgrxComponent,
+    CarsFormComponent,
+    CarComponent
   ],
   imports: [
     // define other modules, way to sawing time to import all components in modules
@@ -44,7 +52,8 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     AuthModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({carPage: carsReducer})
   ],
   // define services
   providers: [],
