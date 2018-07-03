@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   {path: 'description', loadChildren: './landing/description/descriptions.module#DescriptionsModule'},
   {path: 'forms', component: FormsComponent},
   {path: 'databinding', component: DatabindingComponent},
-  {path: 'directives', component: DirectivesComponent},
+  {path: 'directives',  data: {testData: 'test'},  component: DirectivesComponent},
   {path: 'pipes', component: PipesComponent},
   {path: 'animation', component: AnimationComponent},
   {path: 'ngrx', component: NgrxComponent},
