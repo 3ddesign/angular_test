@@ -5,7 +5,6 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MaskDirective } from './directives/mask.directive';
 
 @NgModule({
   declarations: [
