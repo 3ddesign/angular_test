@@ -1,18 +1,34 @@
 import {Component, OnInit} from '@angular/core';
+import {interval, Observable, Observer, Subject, Subscription} from 'rxjs/index';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  public arr = ['active', 'active', 'panding', 'panding']
-  constructor() {}
+export class AppComponent implements OnInit {
+  public numbersObsSubscription: Subscription;
+  public customObsSubscription: Subscription;
+  public testSub = new Subject();
 
-  ngOnInit() {
-    this.arr.forEach(function(item, i) {
-      console.log(`${item} index: ${++i}`);
-    });
+  public ngOnInit(): any {
+    // this.interval();
+    this.subj();
   }
 
+  interval() {
+    const secondsCounter = interval(1000);
+    secondsCounter.subscribe(n =>
+      console.log(`It's been ${n} seconds since subscribing!`));
+  }
+
+  subj() {
+    this.testSub.subscribe(res => {
+      console.log(res);
+    });
+
+    setInterval(() => {
+      this.testSub.next('change');
+    }, 3000);
+  }
 }
