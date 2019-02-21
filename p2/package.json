@@ -12,6 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "imoprt-translations": "node import-translations.js",
     "now-build": "ng run angular:udk:production",
     "now-start": "node ./dist/app/server/main.js"
   },
