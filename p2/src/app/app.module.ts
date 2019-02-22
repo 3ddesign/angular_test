@@ -10,9 +10,11 @@ export const APP_ID = 'my-app';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: APP_ID }),
     AppRoutingModule,
     TranslateModule.forRoot({
