@@ -11,12 +11,14 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: APP_ID }),
     AppRoutingModule,
+    MaterialModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
