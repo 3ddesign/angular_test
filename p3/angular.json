@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.excel2013white.12.0.7.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/assets/lib/spreadjs/gc.spread.sheets.all.12.0.7.min.js",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.print.12.0.7.min.js"
+            ]
           },
           "configurations": {
             "production": {
