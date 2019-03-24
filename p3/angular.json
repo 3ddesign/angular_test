@@ -27,9 +27,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.excel2013white.12.0.9.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/assets/lib/spreadjs/gc.spread.sheets.all.12.0.9.min.js",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.print.12.0.9.min.js",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.charts.12.0.9.min.js",
+              "./src/assets/lib/spreadjs/gc.spread.sheets.pdf.12.0.9.min.js",
+              "./src/assets/lib/spreadjs/gc.spread.excelio.12.0.9.min.js"
+            ]
           },
           "configurations": {
             "production": {
