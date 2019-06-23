@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { SortablejsModule } from 'ngx-sortablejs';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     CommonModule,
     TransferHttpCacheModule,
     HttpClientModule,
+    SortablejsModule.forRoot({ }),
     NgtUniversalModule
   ],
   providers: [],

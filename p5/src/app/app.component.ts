@@ -4,11 +4,16 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <h2>Drag / drop the item</h2>
-  <div >
-    <div *ngFor="let item of items">{{ item }}</div>
-  </div>
+  <ngx-sortable [items]="items" [name]="'List'">
+  <ng-template let-item>
+      <div class="sortable-list-item">
+          {{item}}
+      </div>
+  </ng-template>
+</ngx-sortable>
 `
 })
 export class AppComponent {
   items = [1, 2, 3, 4, 5];
+
 }
