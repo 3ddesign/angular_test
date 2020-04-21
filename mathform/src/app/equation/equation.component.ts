@@ -30,7 +30,7 @@ export class EquationComponent implements OnInit {
 
   ngOnInit() {
     this.mathForm.statusChanges.pipe(filter(value => value === 'VALID'), delay(100)).subscribe(() => {
-      this.mathForm.setValue({
+       this.mathForm.setValue({
         a: this.randomNumber(),
         b: this.randomNumber(),
         answer: ''
