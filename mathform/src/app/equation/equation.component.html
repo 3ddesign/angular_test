@@ -3,6 +3,8 @@
   <input formControlName="answer" />
 </form>
 
+{{ secondsPerSolution | number: '1.1-3' }}
+
 <hr />
 <div>Form is valid: {{ mathForm.valid }}</div>
 <div>Form values: {{ mathForm.value | json }}</div>
