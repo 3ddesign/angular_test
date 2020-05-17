@@ -11,9 +11,14 @@
     <p>
       Password and Password dont match
     </p>
+    <p *ngIf="authForm.errors.noConnection">
+      No internet connection
+    </p>
+    <p *ngIf="authForm.errors.unknownError">
+      Faild to signup
+    </p>
   </div>
   <div>
     <button class="ui submit button primary">Submit</button>
   </div>
-
 </form>
