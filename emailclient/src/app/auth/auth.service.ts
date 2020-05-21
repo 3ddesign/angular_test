@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-interface UserNaveAvailableResponse {
-  available: boolean
+interface UsernameAvailableResponse {
+  available: boolean;
 }
 
 interface SignupCredentials {
@@ -21,21 +21,27 @@ interface SignupResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  rootUrl = 'https://api.angular-email.com'
+  rootUrl = 'https://api.angular-email.com';
   signedin$ = new BehaviorSubject(false);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  usernameAvaliable(username: string) {
-    return this.httpClient.post<UserNaveAvailableResponse>(`${this.rootUrl}/auth/username`, {
+  usernameAvailable(username: string) {
+    return this.http.post<UsernameAvailableResponse>(
+      `${this.rootUrl}/auth/username`,
+      {
         username
-    })
+      }
+    );
   }
 
   signup(credentials: SignupCredentials) {
-    return this.httpClient.post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials)
-      .pipe(tap(() => {
-        this.signedin$.next(true);
-      }));
+    return this.http
+      .post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials)
+      .pipe(
+        tap(() => {
+          this.signedin$.next(true);
+        })
+      );
   }
 }
