@@ -4,6 +4,7 @@ import { MatchPassword } from '../validators/match-password';
 import { UniqueUsername } from '../validators/unique-username';
 import { AuthService } from '../auth.service';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -29,6 +30,7 @@ export class SignupComponent implements OnInit {
   }, {validators: [this.matchPassword.validate] });
 
   constructor(
+    private router: Router,
     private authService: AuthService,
     private uniqueUsername: UniqueUsername,
     private matchPassword: MatchPassword) {}
@@ -42,7 +44,7 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.authForm.value)
       .subscribe({
         next: (response) => {
-          // navigate to some new route
+           this.router.navigateByUrl('/inbox');
         },
         error: (error) =>  {
           if (!error.status) {
