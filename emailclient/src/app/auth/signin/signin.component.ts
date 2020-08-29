@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
   authForm = new FormGroup({
@@ -34,7 +34,7 @@ export class SigninComponent implements OnInit {
 
     this.authService.signin(this.authForm.value).subscribe({
       next: () => {
-         this.router.navigateByUrl('/inbox');
+        this.router.navigateByUrl('/inbox');
       },
       error: ({ error }) => {
         if (error.username || error.password) {

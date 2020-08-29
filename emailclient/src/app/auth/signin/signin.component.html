@@ -14,8 +14,10 @@
   >
   </app-input>
 
-  <div *ngIf="authForm.errors" class="ui basic label">
-    <p *ngIf="authForm.errors.credentials">Invalid credentials</p>
+  <div *ngIf="authForm.errors" class="ui red basic label">
+    <p *ngIf="authForm.errors.credentials">
+      Invalid username or password
+    </p>
   </div>
 
   <div>

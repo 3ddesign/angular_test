@@ -17,7 +17,7 @@ interface SignupResponse {
   username: string;
 }
 
-interface SignInResponse {
+interface SignedinResponse {
   authenticated: boolean;
   username: string;
 }
@@ -56,19 +56,21 @@ export class AuthService {
   }
 
   checkAuth() {
-    return this.http.get<SignInResponse>(`${this.rootUrl}/auth/signedin`).pipe(
-      tap( ( { authenticated } ) => {
-        this.signedin$.next(authenticated);
-      })
-    )
+    return this.http
+      .get<SignedinResponse>(`${this.rootUrl}/auth/signedin`)
+      .pipe(
+        tap(({ authenticated }) => {
+          this.signedin$.next(authenticated);
+        })
+      );
   }
 
   signout() {
     return this.http.post(`${this.rootUrl}/auth/signout`, {}).pipe(
-        tap(() => {
-          this.signedin$.next(false);
-        })
-      );
+      tap(() => {
+        this.signedin$.next(false);
+      })
+    );
   }
 
   signin(credentials: SigninCredentials) {
