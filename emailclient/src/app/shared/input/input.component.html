@@ -5,6 +5,9 @@
     <p *ngIf="control.errors.required">
       Value is required
     </p>
+    <p *ngIf="control.errors.email">
+      Enter a valid email
+    </p>
     <p *ngIf="control.errors.minlength">
       Value you entered is
       {{ control.errors.minlength.actualLength }}
