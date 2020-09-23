@@ -12,7 +12,11 @@
   >
   </app-input>
 
-  <app-input [control]="emailForm.get('text')" inputType="text" label="Content">
+  <app-input
+    controlType="textarea"
+    [control]="emailForm.get('text')"
+    label="Content"
+  >
   </app-input>
 
   <button class="ui button primary">Send</button>
