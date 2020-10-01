@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Email } from '../email';
 
 @Component({
   selector: 'app-email-reply',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./email-reply.component.css']
 })
 export class EmailReplyComponent implements OnInit {
+  showModal = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onSubmit(email: Email) {}
 }
