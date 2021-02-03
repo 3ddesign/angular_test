@@ -10,7 +10,7 @@ import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     SpreadSheetsModule,
     AppRoutingModule
   ],
