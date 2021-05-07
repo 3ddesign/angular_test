@@ -1,0 +1,10 @@
+<div class="right" *ngIf="items">
+
+  <h3>Items</h3>
+  <ul>
+    <li (click)="delItem(i)" *ngFor="let item of items | async; index as i">
+      <a [href]="item.url" target="_blank">{{ item.name }}</a>
+    </li>
+  </ul>
+
+</div>
