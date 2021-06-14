@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script
+      src="https://code.jquery.com/jquery-2.1.1.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="http://cdn.grapecity.com/spreadjs/hosted/css/gc.spread.sheets.excel2013white.14.1.0.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script
+      src="http://cdn.grapecity.com/spreadjs/hosted/scripts/gc.spread.sheets.all.14.1.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="http://cdn.grapecity.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.charts.14.1.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="http://cdn.grapecity.com/spreadjs/hosted/scripts/resources/ja/gc.spread.sheets.resources.ja.14.1.0.min.js"
+      type="application/javascript"
+    ></script>
+
+    <script
+      src="http://cdn.grapecity.com/spreadjs/hosted/scripts/interop/gc.spread.excelio.14.1.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+
+    <script type="text/javascript">
+      var enToFranchFormatMap = {};
+      enToFranchFormatMap["mm/dd/yyyy"] =
+        new GC.Spread.Formatter.GeneralFormatter("yyyy-mm-dd");
+      enToFranchFormatMap["m/d/yyyy"] =
+        new GC.Spread.Formatter.GeneralFormatter("yyyy-m-d");
+      // add more mapping here as needed.
+
+      var g_getFormatter =
+        GC.Spread.Formatter.GeneralFormatter.prototype.getFormatter;
+      GC.Spread.Formatter.GeneralFormatter.prototype.getFormatter = function (
+        index
+      ) {
+        var f = g_getFormatter.call(this, index);
+        var formatString = f && f.formatString();
+        if (
+          formatString &&
+          formatString.length > 0 &&
+          enToFranchFormatMap[formatString]
+        ) {
+          return enToFranchFormatMap[formatString];
+        }
+        return f;
+      };
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var spread = new GC.Spread.Sheets.Workbook(
+          document.getElementById("ss")
+        );
+
+        var excelIO = new GC.Spread.Excel.IO();
+
+        $("#button1").click(function () {
+          spread.suspendPaint();
+          var excelFile = document.getElementById("fileDemo").files[0];
+          excelIO.open(
+            excelFile,
+            function (json) {
+              var workbookObj = json;
+              spread.fromJSON(workbookObj);
+            },
+            function (e) {
+              console.log(e);
+            }
+          );
+          spread.resumePaint();
+
+          var fr_CA = new GC.Spread.Common.CultureInfo();
+          fr_CA.NumberFormat.currencySymbol = "$";
+          fr_CA.NumberFormat.numberDecimalSeparator = ",";
+          fr_CA.NumberFormat.numberGroupSeparator = " ";
+          fr_CA.NumberFormat.arrayGroupSeparator = ";";
+          fr_CA.NumberFormat.arrayListSeparator = "\\";
+          fr_CA.NumberFormat.listSeparator = ";";
+          fr_CA.DateTimeFormat.amDesignator = "AM";
+          fr_CA.DateTimeFormat.pmDesignator = "PM";
+          fr_CA.DateTimeFormat.abbreviatedMonthNames = [
+            "Jan",
+            "Fev",
+            "Mars",
+            "Avr",
+            "Mai",
+            "Jun",
+            "Jul",
+            "Aout",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+            "",
+          ];
+          fr_CA.DateTimeFormat.abbreviatedMonthGenitiveNames = [
+            "Jan",
+            "Fev",
+            "Mars",
+            "Avr",
+            "Mai",
+            "Jun",
+            "Jul",
+            "Aout",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+            "",
+          ];
+          fr_CA.DateTimeFormat.abbreviatedDayNames = [
+            "Di",
+            "Lu",
+            "Ma",
+            "Me",
+            "Je",
+            "Ve",
+            "Sa",
+          ];
+          fr_CA.DateTimeFormat.dayNames = [
+            "Dimanche",
+            "Lundi",
+            "Mardi",
+            "Mercredi",
+            "Jeudi",
+            "Vendredi",
+            "Samedi",
+          ];
+          fr_CA.DateTimeFormat.fullDateTimePattern = "EEEE d MMMM yyyy";
+          fr_CA.DateTimeFormat.longDatePattern = "d MMMM yyyy";
+          fr_CA.DateTimeFormat.longTimePattern = "HH:mm:ss";
+          fr_CA.DateTimeFormat.monthDayPattern = "dd MMMM";
+          fr_CA.DateTimeFormat.monthNames = [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre",
+            "",
+          ];
+          fr_CA.DateTimeFormat.monthGenitiveNames = [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre",
+            "",
+          ];
+          fr_CA.DateTimeFormat.shortDatePattern = "yyyy-MM-dd";
+          fr_CA.DateTimeFormat.shortTimePattern = "HH:mm";
+          fr_CA.DateTimeFormat.yearMonthPattern = "MMMM yyyy";
+          GC.Spread.Common.CultureManager.addCultureInfo("fr-CA", fr_CA);
+          GC.Spread.Common.CultureManager.culture("fr-CA");
+        });
+        $("#btnsetFormat").click(function () {
+          var sheet1 = spread.getSheet(1);
+          sheet1
+            .getRange(
+              0,
+              2,
+              sheet1.getRowCount(),
+              1,
+              GC.Spread.Sheets.SheetArea.viewport
+            )
+            .formatter("yyyy-MM-dd");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="ss" style="width: 100%; height: 400px"></div>
+
+    <input type="file" name="files[]" id="fileDemo" accept=".xlsx,.xls" />
+    <input type="button" id="button1" value="Import Excel" />
+
+    <input type="button" id="btnsetFormat" value="Set Format" />
+  </body>
+</html>
