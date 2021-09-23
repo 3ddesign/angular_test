@@ -6,8 +6,7 @@ import * as TutorialActions from './../actions/test.actions';
 
 @Component({
   selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
+  templateUrl: './create.component.html'
 })
 export class CreateComponent {
 
