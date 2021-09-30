@@ -1,0 +1,22 @@
+<h3>Quick Start</h3>
+<div>
+    Steps for getting started with the SpreadJS in Angular applications:
+    <div>
+        <p>1. Add reference files in your Angular application.</p>
+        <p>2. Add a component to provide data and logic.</p>
+        <p>3. Bind data and some other options of spread.</p>
+        <p>4. Add some css to customize appearance.</p>
+    </div>
+</div>
+
+<div>
+    <gc-spread-sheets [backColor]="spreadBackColor" [hostStyle]="hostStyle" hostClass="spreadContainer">
+        <gc-worksheet [name]="sheetName" [dataSource]="data" [autoGenerateColumns]="autoGenerateColumns">
+            <gc-column width=150 dataField="Name"></gc-column>
+            <gc-column width=150 dataField="CountryRegionCode"></gc-column>
+            <gc-column width=100 dataField="City"></gc-column>
+            <gc-column width=200 dataField="AddressLine"></gc-column>
+            <gc-column width=100 dataField="PostalCode"></gc-column>
+        </gc-worksheet>
+    </gc-spread-sheets>
+</div>
