@@ -28,7 +28,7 @@
     "@grapecity/spread-sheets-angular": "^14.1.4",
     "@grapecity/spread-excelio": "^14.1.4",
     "@nguniversal/express-engine": "^11.2.1",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "rxjs": "^6.6.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
